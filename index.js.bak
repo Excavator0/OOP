@@ -1,0 +1,17 @@
+const { Sequelize } = require('sequelize');
+
+// Подключение к базе данных MySQL
+const sequelize = new Sequelize('cars', 'root', 'superpass100', {
+  host: 'localhost',
+  dialect: 'mysql',
+});
+
+// Проверка подключения
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Подключение успешно установлено.');
+  })
+  .catch((error) => {
+    console.error('Ошибка подключения:', error);
+  });
